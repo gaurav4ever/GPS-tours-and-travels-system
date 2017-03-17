@@ -35,8 +35,18 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/styles5.css">
+    <link rel="stylesheet" type="text/css" href="css/styles6.css">
     <style type="text/css">
+		    .flex-center {
+		    align-items: center;
+		    display: flex;
+		    justify-content: center;
+		    background-image: url("img/logo5.png");
+		    background-repeat: no-repeat;
+		    background-position: center 0;
+		    background-size: cover;
+		    background-attachment: fixed;
+		}
         #team a{
             color: #000;
             text-decoration: none;
@@ -50,12 +60,12 @@
         .links a{
         	text-shadow: 2px 2px 10px #000;
         }
-        #feature_img{
+        #f_img{
         	width: 150px;
         	margin-top: 10px;
         }
         #about-us, .testimonials{
-        	background: #ecd409;
+        	background: #2d67b2;
         	padding: 30px;
         }
         #about-us h1,#about-us h4{
@@ -63,7 +73,7 @@
         	font-weight: bold;
         }
         .testimonials h1,.testimonials h4{
-        	color: #90820a;
+        	color: #fff;
         	font-weight: bold;
         }
         .testimonials p{
@@ -79,7 +89,8 @@
         	padding: 40px;
         }
         .footer h3{
-        	text-shadow: 1px 1px 10px #000;
+        	font-weight: bold;
+        	
         }
         .options{
         	margin-top: 40px;
@@ -89,8 +100,9 @@
         	color: #fff;
         	background: transparent;
         	border:0;
+        	font-weight: bold;
         	box-shadow: 0;
-        	text-shadow: 2px 2px 10px #000;
+        	text-shadow: 1px 1px 5px #000;
         }
     </style>
 </head>
@@ -109,6 +121,7 @@
 
                 		if($userExist==1 and $user_type=="customer"){
                 			?>
+                				<a href="user_request.php">Rent a Car</a>			
                 				<a href="Profile.php">
                 					<?php echo $user_vals['username']; ?>
                 				</a>			
@@ -149,7 +162,7 @@
 
 				  <div class="col-sm-6 col-md-4">
 				    <div class="thumbnail">
-				      <img id="feature_img" src="img/feature1.png" alt="...">
+				      <img id="f_img" src="img/f1.png" alt="...">
 				      <div class="caption">
 				        <h3 class="text-center">Fast and Safe</h3>
 
@@ -162,7 +175,7 @@
 				  
 				  <div class="col-sm-6 col-md-4">
 				    <div class="thumbnail">
-				      <img id="feature_img" src="img/feature2.png" alt="...">
+				      <img id="f_img" src="img/f2.png" alt="...">
 				      <div class="caption">
 				        <h3 class="text-center">Best Prices</h3>
 				        <p class="text-center" style="padding: 20px;">
@@ -174,7 +187,7 @@
 
 				  <div class="col-sm-6 col-md-4">
 				    <div class="thumbnail">
-				      <img id="feature_img" src="img/feature3.png" alt="...">
+				      <img id="f_img" src="img/f3.png" alt="...">
 				      <div class="caption">
 				        <h3 class="text-center">Package Delivery</h3>
 				        <p class="text-center" style="padding: 20px;">
@@ -190,7 +203,7 @@
 
 			<div id="about-us">
 				<h1>Who We Are?</h1>
-				<hr style="background: #ecd409;margin: 40px;">
+				<hr style="background: #2d67b2;margin: 40px;">
 				<div class="row">
 					<div class="col-sm-6">
 						<img src="img/1.jpg">
@@ -201,7 +214,7 @@
 						</h4>
 					</div>
 				</div>	
-				<hr style="background: #ecd409;margin: 40px;">
+				<hr style="background: #2d67b2;margin: 40px;">
 			</div>
 
 			<div class="options">
@@ -248,7 +261,7 @@
 			<div class="testimonials">
 				<div class="row">
 					<h1>Testimonials</h1>
-					<hr style="background: #ecd409;margin: 40px;">
+					<hr style="background: #2d67b2;margin: 40px;">
 					<div class="col-md-3">
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -294,7 +307,7 @@
 						</h4>
 					</div>
 				</div>
-				<hr style="background: #ecd409;margin: 40px;">
+				<hr style="background: #2d67b2;margin: 40px;">
 			</div>
 
 			<div id="contact">
@@ -339,7 +352,7 @@
 		</div>
        
         <div class="footer">
-        	<h3 class="text-center" style="color: #ecd409;">GPS Tours and Travel © 2017 | Privacy Policy</h3>
+        	<h3 class="text-center" style="color: #2d67b2;">GPS Tours and Travel © 2017 | Privacy Policy</h3>
         	<div class="row">
         		<div class="col-md-12">
         			<center>

@@ -1,9 +1,9 @@
 <?php 
-    require("../connection.php");
-    mysql_select_db('tour and travel');
-    $sql="SELECT * FROM applied_user WHERE 1";
-    $retval=mysql_query($sql);
-    if(!$retval)die("server error");
+	require("../connection.php");
+	mysql_select_db('tour and travel');
+	$sql="SELECT * FROM cars_available WHERE 1";
+	$retval=mysql_query($sql);
+	if(!$retval)die("server error");
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,29 +22,29 @@
     <link rel="stylesheet" type="text/css" href="../css/styles5.css">
     <link href="../css/jquery.dataTables.min.css" rel="stylesheet" />
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src="../js/jquery-1.12.3.js"></script>
-    <script src="../js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $('#table').DataTable();
-      } );
-    </script>
+	<script src="../js/jquery-1.12.3.js"></script>
+	<script src="../js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript">
+	  $(document).ready(function() {
+	    $('#table').DataTable();
+	  } );
+	</script>
     <style type="text/css">
 
         .header{
-            padding: 20px;
-            background: #ecd409;
+        	padding: 20px;
+        	background: #ecd409;
         }
         .header h1{
-            color: #fff;
-            font-weight: bold;
+        	color: #fff;
+        	font-weight: bold;
             padding: 0;
             margin: 0;
         }
         .wrapper{
             width: 90%;
             margin: auto;
-            padding: 10px;
+        	padding: 10px;
         }
         ul{
             padding: 0;
@@ -58,15 +58,15 @@
             font-size: 16px;
         }
         .footer{
-            background: #aaa;
-            padding: 40px;
+        	background: #aaa;
+        	padding: 40px;
         }
         .footer h3{
-            text-shadow: 1px 1px 10px #000;
+        	text-shadow: 1px 1px 10px #000;
         }
         .options{
-            margin-top: 10px;
-            margin-bottom: 10px;
+        	margin-top: 10px;
+        	margin-bottom: 10px;
         }
         .main-content{
             background: #fff;
@@ -77,21 +77,21 @@
             font-weight: bold;
         }
         .main-content{
-            padding: 10px;
+        	padding: 10px;
         }
         .table{
-            width: 70%;
-            margin: auto;
-            margin-top: 10px;
-            padding: 20px;
+        	width: 70%;
+        	margin: auto;
+        	margin-top: 10px;
+        	padding: 20px;
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1 class="text-center">GPS Tours and Travel | Admin Handler</h1>
-    </div>
+	<div class="header">
+		<h1 class="text-center">GPS Tours and Travel | Admin Handler</h1>
+	</div>
 
     
         <div class="options">
@@ -106,11 +106,11 @@
                     </li>
                     <li>|</li>
                     <li>
-                        <a href="cars_available.php">Available Cars</a>
+                        <a href="cars_available.php" id="active">Available Cars</a>
                     </li>
                     <li>|</li>
                     <li>
-                        <a href="drivers_available.php" id="active">Available Drivers</a>
+                        <a href="drivers_available.php">Available Drivers</a>
                     </li>
                     <li>|</li>
                     <li>
@@ -125,44 +125,46 @@
         </div>
 
         <div class="main-content">
-                <div class="table">
-                    <table id="table">
-                        <thead>
-                            <tr>
-                                <td><label> id </label></td>
-                                <td><label> name </label></td>
-                                <td><label> Available </label></td>
-                                <td><label> Booked Till </label></td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php 
-                                while($val=mysql_fetch_assoc($retval)){
-                             ?>
-                            <tr>
-                                <td><label><?php echo $val['driver_id']; ?></label></td>
-                                <td><?php echo $val['driver_name']; ?></td>
-                                <td><?php echo $val['Available']; ?></td>
-                                <td><?php echo $val['booked_till']; ?></td>
-                            </tr>
-                            <?php 
-                                }
-                             ?>
-                        </tbody>
-                    </table>
-                </div>
+        		<div class="table">
+        			<table id="table">
+	            		<thead>
+	            			<tr>
+	            				<td><label> id </label></td>
+	            				<td><label> Model </label></td>
+	            				<td><label> Type </label></td>
+	            				<td><label> Available </label></td>
+	            				<td><label> Booked Till </label></td>
+	            			</tr>
+	            		</thead>
+	            		<tbody>
+	            			<?php 
+	            				while($val=mysql_fetch_assoc($retval)){
+	            			 ?>
+	            			<tr>
+	            				<td><label><?php echo $val['id']; ?></label></td>
+	            				<td><?php echo $val['model']; ?></td>
+	            				<td><?php echo $val['type']; ?></td>
+	            				<td><?php echo $val['Available']; ?></td>
+	            				<td><?php echo $val['booked_till']; ?></td>
+	            			</tr>
+	            			<?php 
+	            				}
+	            			 ?>
+	            		</tbody>
+	            	</table>
+        		</div>
         </div>
        
     <div class="footer">
-        <h3 class="text-center" style="color: #ecd409;">GPS Tours and Travel © 2017 | Privacy Policy</h3>
-        <div class="row">
-            <div class="col-md-12">
-                <center>
-                    <img src="../img/facebook.png" style="width: 60px; margin: 10px;">
-                    <img src="../img/instagram.png" style="width: 60px; margin: 10px;">
-                </center>
-            </div>
-        </div>
+    	<h3 class="text-center" style="color: #ecd409;">GPS Tours and Travel © 2017 | Privacy Policy</h3>
+    	<div class="row">
+    		<div class="col-md-12">
+    			<center>
+    				<img src="../img/facebook.png" style="width: 60px; margin: 10px;">
+    				<img src="../img/instagram.png" style="width: 60px; margin: 10px;">
+    			</center>
+    		</div>
+    	</div>
     </div>
     
     <script src="../js/bootstrap.js"></script>

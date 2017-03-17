@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 	<style type="text/css">
 		body{
-			background: url("img/back2.png");
+			background: url("img/back3.png");
 		    background-repeat: no-repeat;
 		    background-position: center 0;
 		    background-size: cover;
@@ -45,11 +45,11 @@
 		}
 		#button{
 			background: transparent;
-			border:1px solid #90820a;
+			border:1px solid #052856;
 			box-shadow: 0;
 			padding: 15px;
 			margin: 10px;
-			color: #90820a;
+			color: #052856;
 			width: 100%;
 		}
 		input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
@@ -87,7 +87,7 @@
 			<div class="col-md-6">
 
 				
-				<h1 style="color: #90820a;" class="text-center">Admin Login</h1>
+				<h1 style="color: #052856;" class="text-center">Admin Login</h1>
 
 
 				 <div class="row form">

@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 	<style type="text/css">
 		body{
-			background: url("img/back2.png");
+			background: url("img/back3.png");
 		    background-repeat: no-repeat;
 		    background-position: center 0;
 		    background-size: cover;
@@ -45,11 +45,12 @@
 		}
 		#button{
 			background: transparent;
-			border:1px solid #90820a;
+			border:1px solid #052856;
 			box-shadow: 0;
 			padding: 8px;
 			margin: 10px;
-			color: #90820a;
+			color: #052856;
+			font-weight: bold;
 			width: 100%;
 		}
 		input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
@@ -72,7 +73,7 @@
 			font-size: 16px;
 		}
 		a:hover{
-			color: #90820a;
+			color: #fff;
 			text-decoration: none;
 		}
 	</style>
@@ -87,7 +88,7 @@
 			<div class="col-md-6">
 
 				
-				<h1 style="color: #90820a;" class="text-center">Register</h1>
+				<h1 style="color: #fff;" class="text-center">Register</h1>
 
 
 				 <div class="row form">
