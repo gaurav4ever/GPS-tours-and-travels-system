@@ -245,8 +245,8 @@
 
         			<div id="loading" style="margin: 40px;">
         				<center>
-	        				<img src="img/processing.gif" style="width: 60px;margin: 10px;">
-	        				<h4>Searching Cars</h3>
+	        				<img src="img/processing.gif" style="width: 60px;margin: 10px;" />
+	        				<h3>Searching Cars</h3>
 	        			</center>	
         			</div>
         			<div id="result_data">
@@ -255,6 +255,30 @@
         			
         		</div>
         	</div>
+
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title text-center" id="myModalLabel" style="font-weight: bold;">Car Details</h3>
+                  </div>
+                  <div class="modal-body" id="car_details">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p> 
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                  </div>
+                </div>
+              </div>
+            </div>
       
     </div>   
     <script src="js/bootstrap.js"></script>
@@ -332,9 +356,17 @@
 	    						html_data+="<div class='row' id='data_row'>";	
 	    						html_data+="<div class='col-md-3'><h3>"+ from +"</h3><span id='date'>on "+ date_from +"</span></div>";
 	    						html_data+="<div class='col-md-3'><h3>"+ to +"</h3><span id='date'>on "+ date_to +"</span></div>";
-	    						html_data+="<div class='col-md-3'><h4>"+ model +"</h4></div>";
+	    						html_data+="<div class='col-md-3'><h4>"+ model +"</h4><a href='#' data-toggle='modal' data-target='#myModal'>Details</a></div>";
 	    						html_data+="<div class='col-md-3'>"+
-	    										"<button class='book_button' id='"+ car_id +"'>Book Now</button>"+
+                                                "<form method='POST' action='user_req_review.php'>"+
+                                                    "<input type='text' name='from' value='"+from+"' hidden>"+
+                                                    "<input type='text' name='to' value='"+to+"' hidden>"+
+                                                    "<input type='text' name='date_from' value='"+date_from+"' hidden>"+
+                                                    "<input type='text' name='date_to' value='"+date_to+"' hidden>"+
+                                                    "<input type='text' name='travellers' value='"+travellers_count+"' hidden>"+
+                                                    "<input type='text' name='car_id' value='"+car_id+"' hidden>"+
+    	    										"<button type='submit' name='submit' class='book_button' id='"+ car_id +"'>Book Now</button>"+
+                                                "</form>"+
 	    									"</div>";
 	    						html_data+="</div>";	
 	    					}
@@ -416,7 +448,7 @@
 	    						html_data+="<div class='row' id='data_row'>";	
 	    						html_data+="<div class='col-md-3'><h3>"+ from +"</h3><span id='date'>on "+ date_from +"</span></div>";
 	    						html_data+="<div class='col-md-3'><h3>"+ to +"</h3><span id='date'>on "+ date_to +"</span></div>";
-	    						html_data+="<div class='col-md-3'><h4>"+ model +"</h4></div>";
+	    						html_data+="<div class='col-md-3'><h4>"+ model +"</h4><a href='#' data-toggle='modal' data-target='#myModal'>Details</a></div>";
 	    						html_data+="<div class='col-md-3'>"+
 	    										"<button class='book_button' id='"+ car_id +"'>Book Now</button>"+
 	    									"</div>";

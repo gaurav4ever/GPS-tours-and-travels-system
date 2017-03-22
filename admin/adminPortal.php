@@ -1,7 +1,7 @@
 <?php 
     require("../connection.php");
     mysql_select_db('tour and travel');
-    $sql="SELECT * FROM applied_user WHERE 1";
+    $sql="SELECT * FROM applied_users WHERE 1";
     $retval=mysql_query($sql);
     if(!$retval)die("server error");
  ?>

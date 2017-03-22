@@ -121,8 +121,8 @@
 
                 		if($userExist==1 and $user_type=="customer"){
                 			?>
-                				<a href="user_request.php">Rent a Car</a>			
-                				<a href="Profile.php">
+                				<a href="user_request.php">Book a Car</a>			
+                				<a href="user/profile.php">
                 					<?php echo $user_vals['username']; ?>
                 				</a>			
                 			<?php
