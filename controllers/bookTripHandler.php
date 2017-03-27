@@ -19,7 +19,7 @@
  		date_default_timezone_set('Asia/Kolkata');
 	 	$added_on=date('d/m/y h:i:sa');
 
- 		$sql="INSERT INTO `applied_users`(`customer_id`,`mobile`, `email`,`location`, `car_id`, `date_from`, `date_to`, `place_from`, `place_to`, `no_of_travellers`, `status`, `payment_method`, `inWishlist`,`booking_time`) VALUES ('$user_id','$user_mobile','$user_email','$user_location','$car_id','$d_from','$d_to','$p_from','$p_to','$t_count','confirmed','$payment_method','0','$added_on')";
+ 		$sql="INSERT INTO `applied_users`(`customer_id`,`mobile`, `email`,`location`, `car_id`, `date_from`, `date_to`, `place_from`, `place_to`, `no_of_travellers`, `status`, `payment_method`, `inWishlist`,`booking_time`) VALUES ('$user_id','$user_mobile','$user_email','$user_location','$car_id','$d_from','$d_to','$p_from','$p_to','$t_count','wfd','$payment_method','0','$added_on')";
  		$retval=mysql_query($sql);
  		if(!$retval){
  			die("Server Error");

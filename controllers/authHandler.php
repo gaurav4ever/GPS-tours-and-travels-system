@@ -35,7 +35,7 @@
  			$_SESSION['user_id']=$val['id'];
  			$_SESSION['user_type']="customer";			
  			echo $val['id'];
- 		   // header('Location: ../index.php');
+ 		   header('Location: ../index.php');
  		}
  	}
  	else

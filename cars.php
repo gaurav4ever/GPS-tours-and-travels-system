@@ -13,11 +13,11 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/styles5.css">
+    <link rel="stylesheet" type="text/css" href="css/styles7.css">
     <style type="text/css">
         .header{
         	padding: 10px;
-        	background: #ecd409;
+        	background: #2d67b2;
         }
         .header h2{
         	color: #fff;
@@ -86,7 +86,7 @@
 	</div>
        
     <div class="footer">
-    	<h3 class="text-center" style="color: #ecd409;">GPS Tours and Travel © 2017 | Privacy Policy</h3>
+    	<h3 class="text-center" style="color: #2d67b2;">GPS Tours and Travel © 2017 | Privacy Policy</h3>
     	<div class="row">
     		<div class="col-md-12">
     			<center>

@@ -45,7 +45,6 @@
 		    background-repeat: no-repeat;
 		    background-position: center 0;
 		    background-size: cover;
-		    background-attachment: fixed;
 		}
         #team a{
             color: #000;

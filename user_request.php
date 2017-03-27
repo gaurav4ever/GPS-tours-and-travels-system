@@ -1,6 +1,4 @@
-<?php
 
- ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -178,7 +176,7 @@
 	    				</div>
 	    				<div class="col-md-2">
 	    					<select class="input_field" id="form1_car_type" name="car_type" required>
-	    						<option>economic</option>
+	    						<option>economy</option>
 	    						<option>standard</option>
 	    						<option>luxury</option>
 	    					</select>
@@ -219,7 +217,7 @@
 				    				</div>
 				    				<div class="col-md-6">
 				    					<select class="input_field" id="form2_car_type" name="car_type" required>
-				    						<option>economic</option>
+				    						<option>economy</option>
 				    						<option>standard</option>
 				    						<option>luxury</option>
 				    					</select>
@@ -439,23 +437,31 @@
 	    					for(var i=0;i<data.length;i++){
 
 	    						var from=data[i][0];
-	    						var date_from=data[i][1];
-	    						var to=data[i][2];
-	    						var date_to=data[i][3];
-	    						var model=data[i][4];
-	    						var car_id=data[i][5];
+                                var date_from=data[i][1];
+                                var to=data[i][2];
+                                var date_to=data[i][3];
+                                var model=data[i][4];
+                                var car_id=data[i][5];
 
-	    						html_data+="<div class='row' id='data_row'>";	
-	    						html_data+="<div class='col-md-3'><h3>"+ from +"</h3><span id='date'>on "+ date_from +"</span></div>";
-	    						html_data+="<div class='col-md-3'><h3>"+ to +"</h3><span id='date'>on "+ date_to +"</span></div>";
-	    						html_data+="<div class='col-md-3'><h4>"+ model +"</h4><a href='#' data-toggle='modal' data-target='#myModal'>Details</a></div>";
-	    						html_data+="<div class='col-md-3'>"+
-	    										"<button class='book_button' id='"+ car_id +"'>Book Now</button>"+
-	    									"</div>";
-	    						html_data+="</div>";	
-	    					}
-	    					html_data+="</center>";
-	    					$("#result_data").html(html_data).slideDown(500);
+                                html_data+="<div class='row' id='data_row'>";   
+                                html_data+="<div class='col-md-3'><h3>"+ from +"</h3><span id='date'>on "+ date_from +"</span></div>";
+                                html_data+="<div class='col-md-3'><h3>"+ to +"</h3><span id='date'>on "+ date_to +"</span></div>";
+                                html_data+="<div class='col-md-3'><h4>"+ model +"</h4><a href='#' data-toggle='modal' data-target='#myModal'>Details</a></div>";
+                                html_data+="<div class='col-md-3'>"+
+                                                "<form method='POST' action='user_req_review.php'>"+
+                                                    "<input type='text' name='from' value='"+from+"' hidden>"+
+                                                    "<input type='text' name='to' value='"+to+"' hidden>"+
+                                                    "<input type='text' name='date_from' value='"+date_from+"' hidden>"+
+                                                    "<input type='text' name='date_to' value='"+date_to+"' hidden>"+
+                                                    "<input type='text' name='travellers' value='"+travellers_count+"' hidden>"+
+                                                    "<input type='text' name='car_id' value='"+car_id+"' hidden>"+
+                                                    "<button type='submit' name='submit' class='book_button' id='"+ car_id +"'>Book Now</button>"+
+                                                "</form>"+
+                                            "</div>";
+                                html_data+="</div>";    
+                            }
+                            html_data+="</center>";
+                            $("#result_data").html(html_data);
 
 	    				}
 	    			});	

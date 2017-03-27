@@ -187,6 +187,10 @@
                     
                     <button>Print Ticket</button>
                     <button>Home</button>
+
+                    <br/><br/>
+
+                    <h4 style="margin: 0;color: #ab0303;font-weight: bold;">You will get a message when driver is assigned to you</h4>
                     
                 </center>
             </div>

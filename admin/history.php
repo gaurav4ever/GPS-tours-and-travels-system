@@ -18,7 +18,7 @@
     <style type="text/css">
         .header{
         	padding: 30px;
-        	background: #ecd409;
+        	background: #2d67b2;
         }
         .header h1{
         	color: #fff;
@@ -58,7 +58,7 @@
             height: 80vh;
         }
         #active{
-            color: #ecd409;
+            color: #2d67b2;
             font-weight: bold;
         }
     </style>

@@ -119,14 +119,17 @@
         td{
         	padding: 5px;
         }
+        #logo_link{
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
 
     <div class="header">
         <div class="row">
-        	<div class="col-md-3">
-        		<h3>GPS Tours and Travels</h3>
+        	<div class="col-md-6">
+        		<a href="../index.php" id="logo_link"><h3>GPS Tours and Travels &nbsp;| &nbsp; My Trips</h3></a>
         	</div>
         	
         	<div class="col-md-2 pull-right">
@@ -157,18 +160,18 @@
 		    	<ul>
 		    		<li>
 		    			<img src="../img/pi1.png" style="width: 20px;">
-		    			<a href="#">My Wish list</a>
+		    			<a href="wishList.php">My Wish list</a>
 		    		</li>
 		    		<li>
 		    			<img src="../img/pi2.png" style="width: 20px;">
-		    			<a href="#">My Bookings</a>
+		    			<a href="bookings.php">My Trips</a>
 		    		</li>
 		    		<li>
 		    			<img src="../img/pi3.png" style="width: 20px;">
-		    			<a href="#">Settings</a>
+		    			<a href="settings.php">Settings</a>
 		    		</li>
 		    		<li><hr style="margin: 1px;"></li>
-		    		<li><a href="#">Profile</a></li>
+		    		<li><a href="profile.php">Profile</a></li>
 		    	</ul>
 		    </div>		
     	</div>

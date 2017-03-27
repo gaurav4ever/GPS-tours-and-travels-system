@@ -184,19 +184,26 @@
                 <center>
 
                 <!-- field to add in database -->
+
+                
                   
-                  <input type="text" name="pfrom" id="id_pfrom" value="<?php echo $from; ?>" hidden="">
-                  <input type="text" name="pto" id="id_pto" value="<?php echo $to; ?>" hidden="">
-                  <input type="text" name="dfrom" id="id_dfrom" value="<?php echo $date_from; ?>" hidden="">
-                  <input type="text" name="dto" id="id_dto" value="<?php echo $date_to; ?>" hidden="">
-                  <input type="text" name="tcount" id="id_tcount" value="<?php echo $travellers; ?>" hidden="">
-                  <input type="text" name="u_id" id="id_u_id" value="<?php echo $user_id; ?>" hidden="">
-                  <input type="text" name="c_id" id="id_c_id" value="<?php echo $car_id; ?>" hidden="">
+                  <input type="text" name="p_from" id="id_pfrom" value="<?php echo $from; ?>" hidden="">
+                  <input type="text" name="p_to" id="id_pto" value="<?php echo $to; ?>" hidden="">
+                  <input type="text" name="d_from" id="id_dfrom" value="<?php echo $date_from; ?>" hidden="">
+                  <input type="text" name="d_to" id="id_dto" value="<?php echo $date_to; ?>" hidden="">
+                  <input type="text" name="t_count" id="id_tcount" value="<?php echo $travellers; ?>" hidden="">
+                  <input type="text" name="user_id" id="id_u_id" value="<?php echo $user_id; ?>" hidden="">
+                  <input type="text" name="car_id" id="id_c_id" value="<?php echo $car_id; ?>" hidden="">
                   <input type="text" name="price" id="id_price" value="400" hidden="">
                   <input type="text" name="payment_method" id="pm" hidden="">
 
                   <h5 id="exist" style="display:none;color: #ab0303;font-weight: bold;">Trip Already in you wish list</h5>
+
                   <button id="wish_list_button">Add to Wish List</button>
+
+                 
+
+
                   &nbsp;&nbsp;&nbsp;&nbsp;
                   <button id="make_payment_button">Make Payment</button>
                   <div class="alert alert-danger" id="error_text" role="alert" style="margin-top: 10px;display: none;">
@@ -255,15 +262,15 @@
       						<td><h5 style="font-weight: bold;">Email</h5></td>
       						<td><label>:</label></td>
       						<td>
-      							<input type="text" class="style_input" id="id_u_email" name="u_email" value="<?php echo $user_val['email'] ?>">
-      							&nbsp;&nbsp;<input type="checkbox" name="send_details" required> Email Me the details
+      							<input type="text" class="style_input" id="id_u_email" name="user_email" value="<?php echo $user_val['email'] ?>">
+      							&nbsp;&nbsp;<input type="checkbox" name="send_details"> Email Me the details
       						</td>
       					</tr>
       					<tr>
       						<td><h5 style="font-weight: bold;">Mobile</h5></td>
       						<td><label>:</label></td>
       						<td>
-      							<input type="text" class="style_input" name="u_mobile" id="id_u_mobile" value="<?php echo $user_val['mobile'] ?>" required>
+      							<input type="text" class="style_input" name="user_mobile" id="id_u_mobile" value="<?php echo $user_val['mobile'] ?>" required>
       							&nbsp;&nbsp;<a href="#">verify</a>
       						</td>
       					</tr>
@@ -271,7 +278,7 @@
       						<td><h5 style="font-weight: bold;">Pick Up Location</h5></td>
       						<td><label>:</label></td>
       						<td>
-      							<input type="text" class="style_input" name="u_location" id="id_u_location" placeholder="Write Here" required>
+      							<input type="text" class="style_input" name="user_location" id="id_u_location" placeholder="Write Here" required>
       							&nbsp;&nbsp;<a href="#">user my current location</a>
       						</td>
       					</tr>
@@ -361,7 +368,7 @@
     <hr style="margin: 80px;"> 
     <script src="js/bootstrap.js"></script>
     <script src="js/custom.js"></script>
-    <script src='js/fly_to_cart.js'></script>
+    <script src='js/fly_to_cart2.js'></script>
     <script type="text/javascript">
     	$(document).ready(function(){
         var wish_list_done="0";

@@ -1,7 +1,7 @@
 <?php 
     require("../connection.php");
     mysql_select_db('tour and travel');
-    $sql="SELECT * FROM applied_users WHERE 1";
+    $sql="SELECT * FROM applied_users WHERE status='wfd'";
     $retval=mysql_query($sql);
     if(!$retval)die("server error");
  ?>
@@ -22,7 +22,6 @@
     <link rel="stylesheet" type="text/css" href="../css/styles5.css">
     <link href="../css/jquery.dataTables.min.css" rel="stylesheet" />
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src="../js/jquery-1.12.3.js"></script>
     <script src="../js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
       $(document).ready(function() {
@@ -33,7 +32,7 @@
 
         .header{
             padding: 20px;
-            background: #ecd409;
+            background: #2d67b2;
         }
         .header h1{
             color: #fff;
@@ -73,7 +72,7 @@
             height: 100vh;
         }
         #active{
-            color: #ecd409;
+            color: #2d67b2;
             font-weight: bold;
         }
         .main-content{
@@ -84,6 +83,14 @@
             margin: auto;
             margin-top: 10px;
             padding: 20px;
+        }
+        #view_request_button{
+            background: #2d67b2;
+            color: #fff;
+            padding: 5px 10px 5px 10px;
+            border:0;
+            box-shadow: 0;
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -98,7 +105,7 @@
             <center>
                 <ul>
                     <li>
-                        <a href="adminPortal.php">Pending Booking</a>
+                        <a href="adminPortal.php" id="active">Pending Booking</a>
                     </li>
                     <li>|</li>
                     <li>
@@ -110,7 +117,7 @@
                     </li>
                     <li>|</li>
                     <li>
-                        <a href="drivers_available.php" id="active">Available Drivers</a>
+                        <a href="drivers_available.php">Available Drivers</a>
                     </li>
                     <li>|</li>
                     <li>
@@ -130,9 +137,10 @@
                         <thead>
                             <tr>
                                 <td><label> id </label></td>
-                                <td><label> name </label></td>
-                                <td><label> Available </label></td>
-                                <td><label> Booked Till </label></td>
+                                <td><label> From </label></td>
+                                <td><label> To </label></td>
+                                <td><label> Email </label></td>
+                                <td></td>
                             </tr>
                         </thead>
                         <tbody>
@@ -140,10 +148,13 @@
                                 while($val=mysql_fetch_assoc($retval)){
                              ?>
                             <tr>
-                                <td><label><?php echo $val['driver_id']; ?></label></td>
-                                <td><?php echo $val['driver_name']; ?></td>
-                                <td><?php echo $val['Available']; ?></td>
-                                <td><?php echo $val['booked_till']; ?></td>
+                                <td><label><?php echo $val['id']; ?></label></td>
+                                <td><?php echo $val['place_from']; ?></td>
+                                <td><?php echo $val['place_to']; ?></td>
+                                <td><?php echo $val['email']; ?></td>
+                                <td>
+                                    <a href="view_request.php?id=<?php echo $val['id'];?>"><button id="view_request_button">View Request</button></a>
+                                </td>
                             </tr>
                             <?php 
                                 }

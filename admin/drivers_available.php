@@ -33,7 +33,7 @@
 
         .header{
         	padding: 20px;
-        	background: #ecd409;
+        	background: #2d67b2;
         }
         .header h1{
         	color: #fff;
@@ -73,7 +73,7 @@
             height: 100vh;
         }
         #active{
-            color: #ecd409;
+            color: #2d67b2;
             font-weight: bold;
         }
         .main-content{
