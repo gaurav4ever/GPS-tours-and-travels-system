@@ -203,7 +203,7 @@
                           <ul class="dropdown-menu" aria-labelledby="dLabel">
                                 <li><a href="profile.php">Profile</a></li>
                                 <li><a href="../index.php">Home</a></li>
-                                <li><a href="../logout">Logout</a></li>
+                                <li><a href="../logout.php">Logout</a></li>
                           </ul>
                         </div>      
                     </div>
@@ -275,7 +275,7 @@
                     </div>
                     <div class="col-md-3">
                         <center>
-                            <span style="font-size: 12px;font-weight: bold;">Added to Wish List on</span>
+                            <span style="font-size: 12px;font-weight: bold;">Booked On</span>
                             <br/>
                             <p style="margin-top: 10px;"><?php echo $wVal['booking_time']; ?></p>
                         </center>
@@ -338,13 +338,16 @@
                         <hr>
                         <center>
                             <?php if($flag==1){
-
+                                $driverId=$wVal['driver_id'];
+                                $driverSql="SELECT * FROM driver_available WHERE driver_id='$driverId'";
+                                $driverVal=mysql_fetch_assoc(mysql_query($driverSql));
                                 ?>
                             <h5 style="font-weight: bold;">Driver Assigned</h5>
                             <br/>
-                            <h3>
-                                Naruto Uzumaki
-                            </h3>
+                            <img src="../img/drivers/<?php echo $driverVal['img'];?>" style="width: 80px;margin: 5px;">
+                            <h4>
+                                <?php echo ucfirst($driverVal['driver_name']); ?>
+                            </h4>
                             <?php
                                 }
                             ?>

@@ -2,7 +2,7 @@ var wish_list_done="0";
 
 $('#wish_list_button').on('click', function () {
         if(wish_list_done=="0"){
-            wish_list_done="1";
+            
 
             // add to details to database
             var flag=1;
@@ -24,6 +24,9 @@ $('#wish_list_button').on('click', function () {
             var payment_method=$("#pm").val();
             console.log(user_id+" "+user_email+" "+user_mobile+" "+user_location+" "+car_id+" "+p_from+" "+p_to+" "+d_from+" "+d_to+" "+t_count+" "+payment_method);
             if(flag==1){
+
+                if(wish_list_done=="0")
+                    wish_list_done=="1";
 
                 var cart = $('#wish_list_img');
                 var imgtodrag = $("#wish_list_button").eq(0);

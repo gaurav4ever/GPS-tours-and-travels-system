@@ -412,6 +412,8 @@
     			}else $("#form1_travellers").removeClass("empty");
 
     			if(flag==1){
+                    $("#result_data").empty();
+                    $("#loading").css({"display":"block"});
     				$.ajax({
 	    				type:"POST",
 	    				url:"controllers/userReqHandler.php",
@@ -425,8 +427,7 @@
 	    				},
 	    				success:function(data){
 	    					console.log(data);
-	    					$("#result_data").empty();
-	    					$("#result_data").css({"display":"none"});
+	    					$("#loading").css({"display":"none"});
 	    					data=JSON.parse(data);
 	    					var html_data="	<center><div class='row'>"+
 	    									"<div class='col-md-3'>From</div>"+
@@ -461,7 +462,10 @@
                                 html_data+="</div>";    
                             }
                             html_data+="</center>";
+                            
                             $("#result_data").html(html_data);
+                            $("#result_data").slideDown(500);
+                            
 
 	    				}
 	    			});	

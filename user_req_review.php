@@ -368,7 +368,7 @@
     <hr style="margin: 80px;"> 
     <script src="js/bootstrap.js"></script>
     <script src="js/custom.js"></script>
-    <script src='js/fly_to_cart2.js'></script>
+    <script src='js/fly_to_cart3.js'></script>
     <script type="text/javascript">
     	$(document).ready(function(){
         var wish_list_done="0";

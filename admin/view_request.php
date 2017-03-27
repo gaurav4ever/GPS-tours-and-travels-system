@@ -220,6 +220,7 @@
                     </table>
                     <br/>
                     <button id="button">Confirm Booking</button>
+                    <h5 class="text-center" id="warning" style="background: #ab0303;padding: 10px;color: #fff;border-radius: 5px;display: none;">Driver not Assigned!</h5>
                 </div>
                 <div class="col-md-8" style="border-left: 1px solid #000;">
                     <h3 class="text-center">Find Driver</h3>
@@ -264,12 +265,41 @@
     <script src="../js/custom.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
+            var driver_id;
             $(".assign_button").click(function(){
-                var driver_id=$(this).attr("id");
-                console.log(driver_id);
+                driver_id=$(this).attr("id");
                 var driver_name=$("#driver_"+driver_id).text();
                 var driverAssigned=driver_name+" ("+driver_id+")";
+                $("#assigned_driver").css({"color":"#000","font-weight":"normal"});
                 $("#assigned_driver").text(driverAssigned);
+            });
+            $("#button").click(function(){
+                var booking_id="<?php echo $id; ?>";
+                if(!driver_id){
+                    $("#warning").slideDown(200);
+                    $("#assigned_driver").css({"color":"#ab0303","font-weight":"bold"});
+                    setTimeout(function(){
+                    $("#warning").slideUp(200);
+                        
+                    }, 2000);
+                }
+                else{
+
+                    $.ajax({
+                      type:"POST",
+                      url:"../controllers/confirmTripHandler.php",
+                      data:{
+                        booking_id:booking_id,
+                        driver_id:driver_id
+                      },
+                      success:function(data){
+                          console.log(data);
+                          data=JSON.parse(data);
+                          if(data['status']=="success")
+                            alert("success");
+                      }
+                    });
+                }
             });
         });
     </script>

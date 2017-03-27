@@ -125,32 +125,23 @@
         </div>
 
         <div class="main-content">
-        		<div class="table">
-        			<table id="table">
-	            		<thead>
-	            			<tr>
-	            				<td><label> id </label></td>
-	            				<td><label> name </label></td>
-	            				<td><label> Available </label></td>
-	            				<td><label> Booked Till </label></td>
-	            			</tr>
-	            		</thead>
-	            		<tbody>
-	            			<?php 
-	            				while($val=mysql_fetch_assoc($retval)){
-	            			 ?>
-	            			<tr>
-	            				<td><label><?php echo $val['driver_id']; ?></label></td>
-	            				<td><?php echo $val['driver_name']; ?></td>
-	            				<td><?php echo $val['Available']; ?></td>
-	            				<td><?php echo $val['booked_till']; ?></td>
-	            			</tr>
-	            			<?php 
-	            				}
-	            			 ?>
-	            		</tbody>
-	            	</table>
-        		</div>
+            <div class="row">
+            <?php 
+                while($val=mysql_fetch_assoc($retval)){
+             ?>
+                <div class="col-md-2" style="padding: 0;border:1px solid #2d67b2;margin: 20px;border-radius: 5px;">
+                    <center>
+                        <img style="width: 120px;margin-top: 5px;" src="../img/drivers/<?php echo $val['img'];?>">
+                        <h4 style="font-weight: bold;color: #2d67b2;"><?php echo ucfirst($val['driver_name']); ?></h4>
+                        Available : <?php echo $val['Available']; ?>
+                        <br>
+                        Booked Till : <?php echo $val['booked_till']; ?>
+                    </center>
+                </div>
+            <?php 
+                }
+             ?>
+            </div>
         </div>
        
     <div class="footer">
