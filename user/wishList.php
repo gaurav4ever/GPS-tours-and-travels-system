@@ -133,7 +133,7 @@
             color: #2d67b2;
             font-weight:bold;
         }
-        #confirm_button{
+        .confirm_button{
             background: #2d67b2;
             border: 0;
             border-radius: 5px;
@@ -256,7 +256,7 @@
                     </div>
                     <div class="col-md-3">
                         <center>
-                            <button id="confirm_button">Confirm</button>
+                            <button data-toggle='modal' data-target='#myModal' class="confirm_button" id="<?php echo $wVal['id']; ?>">Confirm</button>
                             &nbsp;
                             <img src="../img/bin_close.png" class="bin" id="<?php echo $wVal['id'];?>" style="width: 35px;">
                         </center>
@@ -286,9 +286,57 @@
                                     <td><label>:</label></td>
                                     <td><h5><?php echo $wVal['mobile'] ?></h5></td>
                                 </tr>
+                                <tr>
+                                    <td><h5 style="font-weight: bold;">Location</h5></td>
+                                    <td><label>:</label></td>
+                                    <td><h5><?php echo $wVal['location'] ?></h5></td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
+                </div>
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h3 style="margin-bottom: 20px;color: #2d67b2;font-weight: bold;" class="text-center">Payment Options</h3>
+                      </div>
+                      <div class="modal-body" id="car_details">
+                        <div class="row payment_options">
+                            <div class="col-md-12">
+                                <center>    
+                                
+                                <div class="row">
+                                    <div class="col-md-3 po" id="cc" data-id="<?php echo $wVal['id'];?>">
+                                        <img id="cc_img" src="../img/po1.png" style="width: 50px;">
+                                        <h5 style="margin-top: 10px;">Credit Card</h5>
+                                    </div>
+                                    <div class="col-md-3 po" id="dc" data-id="<?php echo $wVal['id'];?>">
+                                        <img id="dc_img" src="../img/po2.png" style="width: 50px;">
+                                        <h5 style="margin-top: 10px;">Debit Card</h5>
+                                    </div>
+                                    <div class="col-md-3 po" id="nb" data-id="<?php echo $wVal['id'];?>">
+                                        <img id="nb_img" src="../img/po3.png" style="width: 50px;">
+                                        <h5 style="margin-top: 10px;">Net Banking</h5>
+                                    </div>
+                                    <div class="col-md-3 po" id="coc" data-id="<?php echo $wVal['id'];?>">
+                                        <img id="coc_img" src="../img/po4.png" style="width: 50px;">
+                                        <h5 style="margin-top: 10px;">Cash On Completion</h5>
+                                    </div>
+                                </div>
+                                </center>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <center>
+                            <input type="payment_method" id="pm_<?php echo $wVal['id'];?>" name="payment_method" hidden>
+                            <button id="<?php echo $wVal['id']?>" type="button" class="btn btn-primary cnf-btn" data-dismiss="modal">Confirm Booking</button>
+                        </center>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <?php } ?>
             </div>      
@@ -340,6 +388,58 @@
                 });
             });
             
+            $("#cc").click(function(){
+                var id=$(this).attr("data-id");
+                $("#cc_img").attr("src","../img/po1_.png");
+                $("#dc_img").attr("src","../img/po2.png");
+                $("#nb_img").attr("src","../img/po3.png");
+                $("#coc_img").attr("src","../img/po4.png");
+                $("#pm_"+id).val("cc");
+            });
+            $("#dc").click(function(){
+                var id=$(this).attr("data-id");
+                $("#cc_img").attr("src","../img/po1.png");
+                $("#dc_img").attr("src","../img/po2_.png");
+                $("#nb_img").attr("src","../img/po3.png");
+                $("#coc_img").attr("src","../img/po4.png");
+                $("#pm_"+id).val("dc");
+            });
+            $("#nb").click(function(){
+                var id=$(this).attr("data-id");
+                $("#cc_img").attr("src","../img/po1.png");
+                $("#dc_img").attr("src","../img/po2.png");
+                $("#nb_img").attr("src","../img/po3_.png");
+                $("#coc_img").attr("src","../img/po4.png");
+                $("#pm_"+id).val("nb");
+            });
+            $("#coc").click(function(){
+                var id=$(this).attr("data-id");
+                $("#cc_img").attr("src","../img/po1.png");
+                $("#dc_img").attr("src","../img/po2.png");
+                $("#nb_img").attr("src","../img/po3.png");
+                $("#coc_img").attr("src","../img/po4_.png");
+                $("#pm_"+id).val("coc");
+            });
+
+            $(".cnf-btn").click(function(){
+                var id=$(this).attr("id");
+                var payment_method=$("#pm_"+ id).val();
+
+                console.log(payment_method +" "+id);
+                $.ajax({
+                    type:"POST",
+                    url:"../controllers/bookTripFromWishListHandler.php",
+                    data:{
+                        id:id,
+                        pm:payment_method
+                    },
+                    success:function(data){
+                        data=JSON.parse(data);
+                        var booking_id=data['booking_id'];
+                        window.location.replace("../confirm_booking.php?booking_id="+booking_id+"");        
+                    }
+                });
+            });
         });
     </script>
 </body>

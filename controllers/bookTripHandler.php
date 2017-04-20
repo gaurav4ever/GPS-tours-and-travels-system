@@ -29,6 +29,7 @@
  		$retval_=mysql_query($sql_);
  		if(!$retval_)die("Server Error");
  		$val=mysql_fetch_assoc($retval_);
+ 		
 		$a=array("status"=>"success","booking_id"=>$val['id']);
 
  		echo json_encode($a);

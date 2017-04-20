@@ -231,7 +231,7 @@
                          ?>
                         <div class="col-md-2" style="padding: 0;border:1px solid #2d67b2;margin: 12px;border-radius: 5px;">
                             <center>
-                                <img src="../img/drivers/1.jpg" style="width: 100px;">
+                                <img src="../img/drivers/<?php echo $DriverVal['img'];?>" style="width: 100px;">
                                 <h4 id="driver_<?php echo $DriverVal['driver_id'];?>"><?php echo ucfirst($DriverVal['driver_name']); ?></h4>
                                 <h5 id="<?php echo $DriverVal['driver_id'];?>" class="assign_button">Assign</h5>
                             </center>

@@ -20,7 +20,7 @@ $('#wish_list_button').on('click', function () {
             var p_to=$("#id_pto").val();
             var d_from=$("#id_dfrom").val();
             var d_to=$("#id_dto").val();
-            var t_count=$("#id_c_id").val();
+            var t_count=$("#id_tcount").val();
             var payment_method=$("#pm").val();
             console.log(user_id+" "+user_email+" "+user_mobile+" "+user_location+" "+car_id+" "+p_from+" "+p_to+" "+d_from+" "+d_to+" "+t_count+" "+payment_method);
             if(flag==1){

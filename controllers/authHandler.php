@@ -18,19 +18,19 @@
  	{
  		date_default_timezone_set('Asia/Kolkata');
  		$action_date=date('d/m/y h:i:sa');
- 		echo $action_date."<br>";
+ 		
  		$pass=md5($password);
- 		$sql="INSERT INTO `users`(`name`, `email`, `mobile`, `password`,`create_at`,`avatar`) VALUES ('$username','$email','$mobile','$pass','$action_date','default.png')";
+ 		$sql="INSERT INTO `users`(`username`, `email`, `mobile`, `password`,`create_at`,`avatar`) VALUES ('$username','$email','$mobile','$pass','$action_date','default.png')";
  		$retval=mysql_query($sql);
  		if(!$retval)
  		{
- 			die("Database Error");
+ 			die("Database Error".mysql_error());
  		}
  		else
  		{
  			$sql_id="select * from `users` where email='$email'";
  			if(!mysql_query($sql_id))
- 				die("Database error");
+ 				die("Database error1");
  			$val=mysql_fetch_assoc(mysql_query($sql_id));
  			$_SESSION['user_id']=$val['id'];
  			$_SESSION['user_type']="customer";			

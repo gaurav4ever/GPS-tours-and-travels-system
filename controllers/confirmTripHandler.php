@@ -12,6 +12,7 @@
 	 	if(!$toDateRetavl)die("Server Error");
 	 	$toDate=mysql_fetch_assoc($toDateRetavl);
 	 	$toDateVal=$toDate['date_to'];
+	 	$car_id=$toDate['car_id'];
 	 	
 	 	//update applied_users table
  		$sql1="UPDATE `applied_users` SET `driver_id`='$driver_id',`status`='confirmed',`inWishlist`='0' WHERE id='$booking_id'";
@@ -22,6 +23,11 @@
  		$sql2="UPDATE `driver_available` SET `Available`='no',`booked_till`='$toDateVal' WHERE driver_id='$driver_id'";
  		$retval2=mysql_query($sql2);
  		if(!$retval2)die("Server Error");
+
+ 		//update cars_available table
+ 		$sql3="UPDATE `cars_available` SET `Available`='no',`booked_till`='$toDateVal' WHERE id='$car_id'";
+ 		$retval3=mysql_query($sql3);
+ 		if(!$retval3)die("Server Error");
 
 		$a=array("status"=>"success");
  		echo json_encode($a);

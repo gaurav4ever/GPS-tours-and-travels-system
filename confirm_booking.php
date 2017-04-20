@@ -178,7 +178,14 @@
                         <tr>
                             <td><label>Status</label></td>
                             <td>:</td>
-                            <td><?php echo $booking_detail['status']; ?></td>
+                            <?php if($booking_detail['status']=="wfd"){
+                                ?>
+
+                                <td>Waiting for driver</td>
+
+                                <?php
+                                } ?>
+                            
                         </tr>
                     </tbody>
                 </table>
