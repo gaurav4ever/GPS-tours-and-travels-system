@@ -19,7 +19,6 @@
 	else{
 		$userExist=0;
 	}
-
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,6 +43,7 @@
 		    background-image: url("img/logo5.png");
 		    background-repeat: no-repeat;
 		    background-position: center 0;
+		    background-attachment: fixed;
 		    background-size: cover;
 		}
         #team a{
@@ -118,9 +118,9 @@
                 <div class="links">
                 	<?php 
 
-                		if($userExist==1 and $user_type=="customer"){
+                		if($userExist==1 || $user_type=="customer"){
                 			?>
-                				<a href="user_request.php">Book a Car</a>			
+                				<!-- <a href="user_request.php">Book a Car</a>			 -->
                 				<a href="user/profile.php">
                 					<?php echo $user_vals['username']; ?>
                 				</a>			
@@ -136,6 +136,7 @@
                 		}
                 	 ?>
                     <a href="cars.php">Cars</a>
+                    <a href="login.php">Log In / Register</a>		
                     <a href="#about-us">About Us</a>
                     <a href="#contact">Contact Us</a>
                     <?php 

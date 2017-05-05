@@ -4,6 +4,10 @@
 	mysql_select_db('tour and travel');
  	session_start();
 
+  if(!isset($_SESSION['user_id'])){
+    die("You are not logged in");
+  }
+
 	if(isset($_POST['submit'])){
 		$from=$_POST['from'];
  		$to=$_POST['to'];
